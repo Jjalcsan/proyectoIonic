@@ -1,0 +1,27 @@
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        hola
+      </ion-col>
+      <ion-col>
+        hola
+      </ion-col>
+      <ion-col>
+        hola
+      </ion-col>
+      <ion-col>
+        hola
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button type="submit" (click)="authService.SignOut()" expand="block">LogOut temporal</ion-button>
+  <div>
+    <form method="post" enctype="multipart/form-data">
+      <div>
+        <div><b>Upload photo</b></div><br>
+        <input type="file" (change)=""uploadPhoto($event) accept=".png,.jpg">
+      </div>
+    </form>
+  </div>
+</ion-content>

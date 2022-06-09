@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {
@@ -12,9 +14,24 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'autenticacion',
-    loadChildren: () => import('./autenticacion/autenticacion.module').then( m => m.AutenticacionPageModule)
+    path: 'toolbar',
+    loadChildren: () => import('./toolbar/toolbar.module').then( m => m.ToolbarPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    canActivate: [LoginGuard]
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule),
+    canActivate: [AuthGuard]
   }
+
 ];
 
 @NgModule({

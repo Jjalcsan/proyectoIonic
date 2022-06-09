@@ -1,15 +1,18 @@
-
-<ion-content [fullscreen]="true">
+<ion-content class="auth-form">
   <ion-grid>
     <ion-row>
-      <ion-col>
-        hola
-      </ion-col>
-      <ion-col>
-        hola
-      </ion-col>
-      <ion-col>
-        hola
+      <ion-col class="ion-align-self-center">
+        <ion-button
+          [routerLink]="['/register']"
+          expand="block"
+          color="primary"
+          >Regístrate</ion-button
+        >
+        <span class="divider line one-line">o </span>
+        <span class="already">¿Ya tienes cuenta?</span>
+        <ion-button [routerLink]="['/login']" expand="block" color="danger"
+          >Inicia sesión</ion-button
+        >
       </ion-col>
     </ion-row>
   </ion-grid>

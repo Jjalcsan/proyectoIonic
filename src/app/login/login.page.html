@@ -1,0 +1,18 @@
+<ion-content>
+  <form>    
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" #email required></ion-input>
+    </ion-item> 
+    <ion-item lines="full">
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" #password required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col> 
+      <ion-button type="submit" (click)="logIn(email, password)" expand="block">Iniciar sesión</ion-button>
+      <span class="already">¿No tienes cuenta? <a href="login">Regístrate</a></span>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
