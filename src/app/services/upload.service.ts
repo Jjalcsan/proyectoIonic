@@ -16,18 +16,22 @@ export class UploadService {
         return Math.floor(Math.random() * 20) + newTime;
     }
 
-    guardarImg (imageData : any){
-        const imageName = this.imgName();
-        return new Promise((resolve, reject) => {
-            const imgRef = this.angularFireStorage.ref(this.location+imageName);
-
-            imgRef.put(imageData).then (function(){
-                imgRef.getDownloadURL().subscribe((url:any) => {
-                    resolve(url);
-                })
-            }). catch((error) => {
-                reject(error);
-            })
+    async guardarImg (imageData : any){
+        try {
+            const imgName = this.imgName();
+            return new Promise((resolve, reject) => {
+            const pictureRef = this.angularFireStorage.ref(this.location + imgName);
+            pictureRef
+            .put(imageData)
+            .then(function () {
+            pictureRef.getDownloadURL().subscribe((url: any) => {
+            resolve(url);
+            });
         })
+        .catch((error) => {
+            reject(error);
+        });
+        });
+        } catch (e) {}
     }
 }
