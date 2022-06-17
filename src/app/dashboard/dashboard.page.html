@@ -1,35 +1,13 @@
-<ion-content [fullscreen]="true">
-  <div>
-    <form method="post">
-      <div>
-        <div><b>Cargar una foto</b></div><br>
-        <input type="file" (change)="uploadPhoto($event)" accept=".png,.jpg">
+<ion-content fullscreen class="ion-padding" scroll-y="false">
+  <ion-slides>
+    <ion-slide *ngFor="let grupo of grupos">
+      <div class="slide">
+        <img src={{grupo.rutaGrupo}} />
+        <h2>{{grupo.nombre}}</h2>
+        <p>
+          {{grupo.desc}}
+        </p>
       </div>
-      <div *ngIf="barStatus">
-        Cargando.....
-      </div>
-    </form>
-  </div>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        hola
-      </ion-col>
-      <ion-col>
-        Elementos de diseño no vistos
-      </ion-col>
-      <ion-col>
-        Elementos del movil
-      </ion-col>
-      <ion-col>
-        hola
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-button type="submit" (click)="authService.SignOut()" expand="block">LogOut temporal</ion-button>
-  <div id="photoPreview">
-    <div *ngFor="let image of imageUploads">
-        <img loading="lazy" [src]="image" class="preview" />
-    </div>
-</div>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

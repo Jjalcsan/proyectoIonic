@@ -11,7 +11,7 @@
     <ion-row>
       <ion-col> 
       <ion-button type="submit" (click)="logIn(email, password)" expand="block">Iniciar sesión</ion-button>
-      <span class="already">¿No tienes cuenta? <a href="login">Regístrate</a></span>
+      <span class="already">¿No tienes cuenta? <a (click)="navigatoToRegister()">Regístrate</a></span>
       </ion-col>
     </ion-row>
   </form>

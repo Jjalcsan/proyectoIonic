@@ -14,10 +14,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'toolbar',
-    loadChildren: () => import('./toolbar/toolbar.module').then( m => m.ToolbarPageModule)
-  },
-  {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
   },
@@ -29,7 +25,17 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'image-upload',
+    loadChildren: () => import('./image-upload/image-upload.module').then( m => m.ImageUploadPageModule)
+  },
+  {
+    path: 'menu',
+    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   }
+
+
 
 ];
 

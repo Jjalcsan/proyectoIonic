@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { AuthenticationService } from "../shared/authentication.service";
+import { AuthenticationService } from "../services/authentication.service";
 
 @Component({
   selector: 'app-register',
@@ -17,9 +17,7 @@ export class RegisterPage implements OnInit {
   signUp(email, password){
     this.authService.RegisterUser(email.value, password.value)
     .then((res) => {
-      // Do something here
-      this.authService.SendVerificationMail()
-      this.router.navigate(['verify-email']);
+      this.router.navigateByUrl("/dashboard")
     }).catch((error) => {
       window.alert(error.message)
     })

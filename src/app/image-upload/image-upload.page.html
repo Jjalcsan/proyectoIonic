@@ -1,0 +1,19 @@
+<ion-content [fullscreen]="true">
+  <div>
+    <form method="post">
+      <div>
+        <div><b>Cargar una foto</b></div><br>
+        <input type="file" (change)="uploadPhoto($event)" accept=".png,.jpg">
+      </div>
+      <div *ngIf="barStatus">
+        Cargando.....
+      </div>
+    </form>
+  </div>
+  <ion-button type="submit" (click)="authService.SignOut()" expand="block">LogOut temporal</ion-button>
+  <div id="photoPreview">
+    <div *ngFor="let image of imageUploads">
+        <img loading="lazy" [src]="image" class="preview" />
+    </div>
+</div>
+</ion-content>
